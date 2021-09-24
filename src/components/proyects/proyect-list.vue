@@ -4,7 +4,7 @@
   <v-btn @click="addProyects" color="purple" class="white--text">Agregar Proyecto</v-btn>
   <v-layout row wrap >
     <v-flex xs12 sm6 v-for="proyect in proyects" :key="proyect.title"  >
-          <v-card @click="dialog=true" v-on:click="GetIdProyect(proyect.id), Getproyect()">
+          <v-card @click="dialog=true" v-on:click="GetIdProyect(proyect.id), Getproyect(),Borrarluego()">
             <v-card-title >{{proyect.title}}</v-card-title>
           </v-card>
     </v-flex>
@@ -71,7 +71,8 @@ export default {
     dialog:false ,
     indexcurrent:null,
     proyectaux:null,
-    dialogadd:false
+    dialogadd:false,
+    lastIdProyect:0,
   }),
   methods:{
     getDisplayProyect(proyect){
@@ -123,6 +124,21 @@ export default {
       .then(this.refreshlist)
       console.log('aber'+indexdelete)
       this.dialog=false
+    },
+    Borrarluego(){
+      console.log(this.proyects)
+      let encontrar = this.proyects;
+      
+      for (let i = 0; i < encontrar.length; i++) {
+        console.log(encontrar[i].id)
+        for (let j = i; j < encontrar.length; j++) {
+            if(encontrar[j].id>encontrar[i].id){
+               this.lastIdProyect = encontrar[j].id;
+            }    
+          
+        }
+      }
+      console.log("El ultimo id es:", this.lastIdProyect )
     }
 
   },

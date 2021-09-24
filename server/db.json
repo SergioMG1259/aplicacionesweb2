@@ -11,11 +11,6 @@
       "description": "lorem impsum 2"
     },
     {
-      "id": 3,
-      "title": "Genshin",
-      "description": "lorem impsum 3"
-    },
-    {
       "id": 4,
       "title": "Genshin",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis neque elit. Sed condimentum interdum rutrum. Praesent accumsan, eros quis ultrices facilisis, urna mauris blandit tortor, vitae dapibus nisi purus non massa. Nam mattis enim ut dignissim fermentum. Nulla orci diam, condimentum non justo in, aliquet venenatis nisl. Nullam augue enim, feugiat eu nisi eget, ullamcorper tristique quam. In hac habitasse platea dictumst. Sed laoreet tristique justo in tempus.\n\nUt quis mattis nisl. Proin pharetra purus sem, ac tristique velit condimentum quis. Aenean ac lectus dolor. Proin venenatis sem in magna luctus ullamcorper. Mauris placerat ullamcorper ex. Curabitur at metus eros. Aliquam quis tempor elit. Vestibulum euismod odio eget neque bibendum, at congue arcu scelerisque. Nam tincidunt mi a felis fringilla, at scelerisque eros facilisis."
