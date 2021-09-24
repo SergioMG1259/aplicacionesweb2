@@ -22,31 +22,16 @@
     },
     {
       "id": 5,
-      "title": "Clash",
-      "description": "lorem ipsum"
-    },
-    {
-      "id": 6,
       "title": "Clash 2",
       "description": "lorem ipsum"
     },
     {
+      "id": 6,
+      "title": "Clash 3",
+      "description": "lorem ipsum"
+    },
+    {
       "id": 7,
-      "title": "Clash 3",
-      "description": "lorem ipsum"
-    },
-    {
-      "id": 8,
-      "title": "Clash 3",
-      "description": "lorem ipsum"
-    },
-    {
-      "id": 9,
-      "title": "Clash 3",
-      "description": "lorem ipsum"
-    },
-    {
-      "id": 10,
       "title": "Clash 3",
       "description": "lorem ipsum"
     }

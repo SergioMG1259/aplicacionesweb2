@@ -6,10 +6,52 @@
     <v-flex xs12 sm6 v-for="proyect in proyects" :key="proyect.title"  >
           <v-card @click="dialog=true" v-on:click="GetIdProyect(proyect.id), Getproyect()">
             <v-card-title >{{proyect.title}}</v-card-title>
-
           </v-card>
     </v-flex>
-    <myproyect :dialog2="dialog" @close-Proyect="CloseProyect" :idsearch="indexcurrent" :proyectaux="proyectaux"></myproyect>
+    <v-dialog v-model="dialogadd">
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">Nuevo proyecto</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col
+                  cols="12"
+                  sm="6"
+                  md="6"
+              >
+                <v-text-field
+                    label="Nombre del proyecto"
+                    required
+                ></v-text-field>
+                <small>*indicates required field</small>
+              </v-col>
+
+            </v-row>
+          </v-container>
+
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+              color="blue darken-1"
+              text
+              @click="dialog = false"
+          >
+            Close
+          </v-btn>
+          <v-btn
+              color="blue darken-1"
+              text
+              @click="dialog = false"
+          >
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <myproyect :dialog2="dialog" @close-Proyect="CloseProyect" :idsearch="indexcurrent" :proyectaux="proyectaux" @deleteProyect="DeleteMyProyect"></myproyect>
   </v-layout>
 </v-container>
 </template>
@@ -28,7 +70,8 @@ export default {
     currentindex:0,
     dialog:false ,
     indexcurrent:null,
-    proyectaux:null
+    proyectaux:null,
+    dialogadd:false
   }),
   methods:{
     getDisplayProyect(proyect){
@@ -53,9 +96,12 @@ export default {
       this.retrieveProyect()
     },
     addProyects(){
-      let dato={id:this.proyects.length+1,title:"Clash 3",description:"lorem ipsum"}
+      this.dialogadd=true
+      /*let dato={id:this.proyects.length+1,title:"Clash 3",description:"lorem ipsum"}
+      console.log(this.proyects.length+1)
       ProyectsApiService.create(dato)
-      .then(this.refreshlist)
+      .then(this.refreshlist)*/
+
     },
     CloseProyect(dialog2){
       this.dialog=dialog2
@@ -70,6 +116,13 @@ export default {
         console.log(response.data)
         console.log(this.proyectaux.title)
       })
+    },
+    DeleteMyProyect(indexdelete){
+      console.log('aber'+indexdelete)
+      ProyectsApiService.delete(indexdelete)
+      .then(this.refreshlist)
+      console.log('aber'+indexdelete)
+      this.dialog=false
     }
 
   },

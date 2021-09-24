@@ -19,7 +19,7 @@
         </v-btn>
       </v-list-item>
       <v-divider></v-divider>
-      <v-list v-for="item in items" :key="item.title" link :to="item.href" class="text-center align-center" >
+      <v-list v-for="item in items" :key="item.title"  class="text-center align-center" >
 
         <v-btn color="purple" x-large class="white--text"  link :to="item.href">
           {{item.title}}
@@ -31,6 +31,7 @@
       </v-btn>
 
     </v-navigation-drawer>
+    <!--<sidebar></sidebar>-->
     <v-main>
       <v-container fluid>
         <router-view/>
@@ -39,7 +40,9 @@
   </v-app>
 </template>
 <script>
+//import Sidebar from "@/components/Sidebar";
 export default {
+  //components: {Sidebar},
   data: () => ({
     //
     items:[{title:'inicio',href:"/home"},{title: 'perfil',href:"profile"},{title: 'notificaciones',href:"/home"},
