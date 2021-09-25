@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!--
     <v-navigation-drawer
         v-model="sidebarMenu"
         app
@@ -31,18 +32,22 @@
       </v-btn>
 
     </v-navigation-drawer>
-    <!--<sidebar></sidebar>-->
-    <v-main>
-      <v-container fluid>
+    -->
+    <div class="container-app">
+    <Sidebar></Sidebar>
+    
+      <v-container>
         <router-view/>
       </v-container>
-    </v-main>
+
+    </div>
+    
   </v-app>
 </template>
 <script>
-//import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Sidebar";
 export default {
-  //components: {Sidebar},
+  components: {Sidebar},
   data: () => ({
     //
     items:[{title:'inicio',href:"/home"},{title: 'perfil',href:"profile"},{title: 'notificaciones',href:"/home"},
@@ -52,5 +57,7 @@ export default {
 }
 </script>
 <style lang="scss">
-
+  .container-app{
+    display:flex;
+  }
 </style>
