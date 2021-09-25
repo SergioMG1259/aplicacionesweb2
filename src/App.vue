@@ -1,5 +1,6 @@
 <template>
   <v-app>
+
     <!--<v-navigation-drawer
         v-model="sidebarMenu"
         app
@@ -44,6 +45,8 @@
         <router-view/>
       </v-container>
     </v-main>-->
+
+
   </v-app>
 </template>
 <script>
@@ -65,4 +68,10 @@ export default {
 .content-view{
   overflow-y: auto !important;
 }
+  .container-app{
+    display:flex;
+  }
+  .content-view{
+    overflow-y: auto !important;
+  }
 </style>

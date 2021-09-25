@@ -10,7 +10,7 @@ class ProyectsApiService{
         return http.post("/proyects",data);
     }
     update(id,data){
-        return http.put(`proyects/${id}`,data);
+        return http.patch(`proyects/${id}`,data);
     }
     delete(id){
         return http.delete(`/proyects/${id}`);

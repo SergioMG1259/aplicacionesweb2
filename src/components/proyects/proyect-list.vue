@@ -9,8 +9,8 @@
           </v-card>
     </v-flex>
     <!--AGREGAR PROYECTO-->
-    <v-dialog v-model="dialogadd">
-      <v-card width="1000">
+    <v-dialog v-model="dialogadd" width="800">
+      <v-card >
         <v-toolbar color="white" flat>
           <v-spacer></v-spacer>
           <v-btn color="purple" class="white--text" @click="dialogadd=false"><v-icon>
@@ -25,7 +25,7 @@
             <v-row>
               <v-col cols="12" sm="6" md="6">
                 <v-text-field
-                    label="Nombre del proyecto"
+                    label="Título del proyecto"
                     v-model="titleadd"
                     required
                 ></v-text-field>
@@ -44,7 +44,9 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <myproyect :dialog2="dialog" @close-Proyect="CloseProyect" :idsearch="indexcurrent" :proyectaux="proyectaux" @deleteProyect="DeleteMyProyect"></myproyect>
+    <myproyect :dialog2="dialog" @close-Proyect="CloseProyect" :idsearch="indexcurrent"
+               :proyectaux="proyectaux2"  @deleteProyect="DeleteMyProyect" @edit-Proyect="EditMyProyect" >
+    </myproyect>
   </v-layout>
 </v-container>
 </template>
@@ -63,12 +65,13 @@ export default {
     currentindex:0,
     dialog:false ,
     indexcurrent:null,
-    proyectaux:null,
+    proyectaux2:null,
     dialogadd:false,
     titleadd:'',
     descriptionadd:'',
     proyectarray:null,
-    lastid:''
+    lastid:'',
+    lastIdProyect:0,
   }),
   methods:{
     getDisplayProyect(proyect){
@@ -123,19 +126,20 @@ export default {
     Getproyect(){
       ProyectsApiService.getById(this.indexcurrent)
       .then(response=>{
-        this.proyectaux=response.data
+        this.proyectaux2=response.data
         console.log(response.data)
-        console.log(this.proyectaux.title)
+        console.log(this.proyectaux2.title)
       })
     },
     DeleteMyProyect(indexdelete){
-      console.log('aber'+indexdelete)
       ProyectsApiService.delete(indexdelete)
       .then(this.refreshlist)
-      console.log('aber'+indexdelete)
       this.dialog=false
+    },
+    EditMyProyect(index,date){
+      ProyectsApiService.update(index,date)
+      .then(this.refreshlist)
     }
-
   },
   mounted() { /*importante porque aqui carga la lista de proyects*/
     this.retrieveProyect();
