@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
+    <!--<v-navigation-drawer
         v-model="sidebarMenu"
         app
         floating
@@ -17,7 +17,7 @@
         <v-btn icon small>
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
-      </v-list-item>
+      </v-list-item>-
       <v-divider></v-divider>
       <v-list v-for="item in items" :key="item.title"  class="text-center align-center" >
 
@@ -30,19 +30,26 @@
         hola
       </v-btn>
 
-    </v-navigation-drawer>
-    <!--<sidebar></sidebar>-->
-    <v-main>
+    </v-navigation-drawer>-->
+    <div class="container-app">
+      <Sidebar></Sidebar>
+
+      <v-container class="content-view">
+        <router-view/>
+      </v-container>
+
+    </div>
+    <!--<v-main>
       <v-container fluid>
         <router-view/>
       </v-container>
-    </v-main>
+    </v-main>-->
   </v-app>
 </template>
 <script>
-//import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Sidebar";
 export default {
-  //components: {Sidebar},
+  components: {Sidebar},
   data: () => ({
     //
     items:[{title:'inicio',href:"/home"},{title: 'perfil',href:"profile"},{title: 'notificaciones',href:"/home"},
@@ -52,5 +59,10 @@ export default {
 }
 </script>
 <style lang="scss">
-
+.container-app{
+  display:flex;
+}
+.content-view{
+  overflow-y: auto !important;
+}
 </style>

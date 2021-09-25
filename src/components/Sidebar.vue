@@ -12,7 +12,7 @@
       <v-divider></v-divider>
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" >
-         <v-list-item-content>
+          <v-list-item-content>
             <!--<v-list-item-title>{{ item.title }}</v-list-item-title>-->
             <v-btn  link :to="item.href" color="#7E0B9F" class="button-navigation" large block rounded >
               {{ item.title }}
@@ -35,7 +35,6 @@
 <script>
 export default {
   name: "Sidebar",
-
   data: () => ({
     items: [
       { title: "Inicio",href:"/home" },
@@ -56,16 +55,15 @@ export default {
   background-color: white !important;
 }
 h3{
-    font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
 }
-
 .title-sidebar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#7E0B9F;
-    height: 6pc;
-    color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#7E0B9F;
+  height: 6pc;
+  color:white;
 }
 .button-navigation {
   color: white !important;
@@ -79,11 +77,9 @@ h3{
   font-family: "Poppins", sans-serif;
 }
 .v-list-item{
-    padding: 0 30px !important;
+  padding: 0 30px !important;
 }
-
 .pa-2{
-    padding:8px 30px !important;
+  padding:8px 30px !important;
 }
-
 </style>

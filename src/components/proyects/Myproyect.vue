@@ -6,6 +6,10 @@
         <v-btn color="purple" @click="dialog2=false" v-on:click="closeProyect" class="white--text"><v-icon>
           mdi-close
         </v-icon></v-btn>
+        <v-spacer></v-spacer>
+        <v-icon x-large color="purple">
+          mdi-pencil
+        </v-icon>
       </v-toolbar>
       <h1 align="center">{{this.proyectaux.title}}</h1>
       <p>{{this.proyectaux.description}}</p>

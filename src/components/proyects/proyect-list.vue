@@ -1,52 +1,45 @@
 <template>
 
 <v-container grid-list-md>
-  <v-btn @click="addProyects" color="purple" class="white--text">Agregar Proyecto</v-btn>
+  <v-btn @click="dialogadd=true" color="purple" class="white--text">Agregar Proyecto</v-btn>
   <v-layout row wrap >
     <v-flex xs12 sm6 v-for="proyect in proyects" :key="proyect.title"  >
           <v-card @click="dialog=true" v-on:click="GetIdProyect(proyect.id), Getproyect()">
             <v-card-title >{{proyect.title}}</v-card-title>
           </v-card>
     </v-flex>
+    <!--AGREGAR PROYECTO-->
     <v-dialog v-model="dialogadd">
-      <v-card>
+      <v-card width="1000">
+        <v-toolbar color="white" flat>
+          <v-spacer></v-spacer>
+          <v-btn color="purple" class="white--text" @click="dialogadd=false"><v-icon>
+            mdi-close
+          </v-icon></v-btn>
+        </v-toolbar>
         <v-card-title>
           <span class="text-h5">Nuevo proyecto</span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col
-                  cols="12"
-                  sm="6"
-                  md="6"
-              >
+              <v-col cols="12" sm="6" md="6">
                 <v-text-field
                     label="Nombre del proyecto"
+                    v-model="titleadd"
                     required
                 ></v-text-field>
                 <small>*indicates required field</small>
-              </v-col>
+                <v-textarea solo name="input-8-4" label="Agregar descripción" v-model="descriptionadd" required>
 
+                </v-textarea>
+              </v-col>
             </v-row>
           </v-container>
-
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-              color="blue darken-1"
-              text
-              @click="dialog = false"
-          >
-            Close
-          </v-btn>
-          <v-btn
-              color="blue darken-1"
-              text
-              @click="dialog = false"
-          >
-            Save
+          <v-btn color="purple" class="white--text" @click="addProyects" v-on:click="dialogadd=false">
+            Agregar
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -71,7 +64,11 @@ export default {
     dialog:false ,
     indexcurrent:null,
     proyectaux:null,
-    dialogadd:false
+    dialogadd:false,
+    titleadd:'',
+    descriptionadd:'',
+    proyectarray:null,
+    lastid:''
   }),
   methods:{
     getDisplayProyect(proyect){
@@ -95,13 +92,27 @@ export default {
     refreshlist(){
       this.retrieveProyect()
     },
+    FindLastId(){
+      let find = this.proyects;
+
+      for (let i = 0; i < find.length; i++) {
+
+        for (let j = i; j < find.length; j++) {
+          if(find[j].id>find[i].id){
+            this.lastid = find[j].id;
+          }
+
+        }
+      }
+    },
     addProyects(){
-      this.dialogadd=true
-      /*let dato={id:this.proyects.length+1,title:"Clash 3",description:"lorem ipsum"}
+      this.FindLastId()
+      let dato={id:this.lastid+1,title:this.titleadd,description:this.descriptionadd}
       console.log(this.proyects.length+1)
       ProyectsApiService.create(dato)
-      .then(this.refreshlist)*/
-
+      .then(this.refreshlist)
+      this.titleadd=''
+      this.descriptionadd=''
     },
     CloseProyect(dialog2){
       this.dialog=dialog2
