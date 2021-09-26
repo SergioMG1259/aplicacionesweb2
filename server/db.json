@@ -37,11 +37,67 @@
     },
     {
       "id": 12,
-      "title": "Call of Duty V4",
-      "description": "Version mejorada 2"
+      "title": "Call Of Duty 5",
+      "description": "Version mejorada 3"
     }
   ],
-  "Anuncios": [
-    {}
+  "announcement": [
+    {
+      "idAnnouncement": 1,
+      "titleAnnouncement": "Se necesita...",
+      "especialty": "Programador web",
+      "experience": "Practicante",
+      "infoJob": "lorem ipsum ",
+      "date:": "17-09-2021",
+      "applicants": [
+        {
+          "idapplicants": 1
+        },
+        {
+          "idapplicants": 2
+        },
+        {
+          "idapplicants": 3
+        }
+      ]
+    },
+    {
+      "idAnnouncement": 2,
+      "titleAnnouncement": "Se necesita...",
+      "especialty": "Ux design",
+      "experience": "Practicante",
+      "infoJob": "lorem ipsum ",
+      "date:": "18-09-2021",
+      "applicants": [
+        {
+          "idapplicants": 5
+        },
+        {
+          "idapplicants": 7
+        },
+        {
+          "idapplicants": 6
+        }
+      ]
+    },
+    {
+      "idAnnouncement": 3,
+      "titleAnnouncement": "Se necesita...",
+      "especialty": "Programador mobile",
+      "experience": "Practicante",
+      "infoJob": "lorem ipsum ",
+      "date:": "18-09-2021",
+      "applicants": [
+        {
+          "idapplicants": 13
+        },
+        {
+          "idapplicants": 11
+        },
+        {
+          "idapplicants": 17
+        }
+      ]
+    }
   ]
 }

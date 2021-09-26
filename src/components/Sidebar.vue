@@ -41,7 +41,7 @@ export default {
       { title: "Perfil",href:"/profile" },
       { title: "Notificaciones",href:"/about" },
       { title: "Mensajes" },
-      { title: "Para Practicantes" },
+      { title: "Para Practicantes",href: "/announcementPracticing" },
       { title: "Premium" },
     ],
   }),

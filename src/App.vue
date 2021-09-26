@@ -55,9 +55,7 @@ export default {
   components: {Sidebar},
   data: () => ({
     //
-    items:[{title:'inicio',href:"/home"},{title: 'perfil',href:"profile"},{title: 'notificaciones',href:"/home"},
-      {title: 'Mensaje',href:"/about"}
-    ]
+
   }),
 }
 </script>

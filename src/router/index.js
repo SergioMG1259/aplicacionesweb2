@@ -27,6 +27,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () =>import('../components/proyects/proyect-list.vue')
+  },
+  {
+    path: '/announcementPracticing',
+    name: 'AnnouncementPracticing',
+    component: ()=>import('../components/announcement/announcement-list')
   }
 ]
 

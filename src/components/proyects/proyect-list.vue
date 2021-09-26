@@ -3,7 +3,7 @@
 <v-container grid-list-md>
   <v-btn @click="dialogadd=true" color="purple" class="white--text">Agregar Proyecto</v-btn>
   <v-layout row wrap >
-    <v-flex xs12 sm6 v-for="proyect in proyects" :key="proyect.title"  >
+    <v-flex xs12 sm6 v-for="proyect in proyects" :key="proyect.key"  >
           <v-card @click="dialog=true" v-on:click="GetIdProyect(proyect.id), Getproyect()">
             <v-card-title >{{proyect.title}}</v-card-title>
           </v-card>
